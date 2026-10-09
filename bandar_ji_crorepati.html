@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bandar Ji Ka Crorepati 🐒</title>
+<style>
+  :root { --ink:#2c1748; --pink:#ff5c9a; --yellow:#ffe36e; --purple:#7b4dff; --cream:#fff9ef; }
+  * { box-sizing:border-box }
+  body { margin:0; font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif; color:var(--ink); background:radial-gradient(circle at top left,#ffe5f0,transparent 38%),linear-gradient(135deg,#fff8e9,#eee6ff); min-height:100vh; }
+  .wrap { max-width:900px; margin:auto; padding:24px 16px 48px; }
+  .top { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+  .pill { background:white; border:2px solid #eadcff; padding:9px 14px; border-radius:99px; font-weight:800; box-shadow:0 4px 0 #e5d8ff; }
+  .hero { text-align:center; padding:32px 12px 20px; }
+  .monkey { font-size:clamp(70px,14vw,120px); display:inline-block; animation:bob 1.8s ease-in-out infinite; filter:drop-shadow(0 8px 0 #e9c6ff); }
+  @keyframes bob { 0%,100%{transform:translateY(0) rotate(-4deg)} 50%{transform:translateY(-10px) rotate(4deg)} }
+  h1 { font-size:clamp(2.2rem,7vw,4.5rem); line-height:1.02; margin:8px 0 14px; letter-spacing:-2px; }
+  h1 span { color:var(--purple); text-shadow:3px 3px 0 white; }
+  .sub { font-size:1.1rem; max-width:650px; margin:0 auto; line-height:1.6; }
+  .prize { margin:24px auto 0; max-width:620px; background:var(--yellow); border:3px dashed #38214f; border-radius:22px; padding:16px; transform:rotate(-1deg); box-shadow:7px 7px 0 #d9c5ff; }
+  .prize small { display:block; font-weight:900; letter-spacing:2px; }
+  .prize strong { font-size:clamp(2rem,7vw,3.7rem); }
+  .card { background:rgba(255,255,255,.9); border:2px solid #eee4ff; border-radius:24px; padding:22px; margin:20px 0; box-shadow:0 8px 0 #e3d5ff; }
+  .card h2 { margin:0 0 10px; font-size:1.5rem; }
+  .muted { color:#705f83; line-height:1.55; }
+  .stats { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; font-weight:900; margin-bottom:14px; }
+  .bar { height:12px; background:#eee7ff; border-radius:99px; overflow:hidden; margin:10px 0 18px; }
+  .fill { height:100%; width:0%; background:linear-gradient(90deg,var(--pink),var(--purple)); transition:width .25s; }
+  .arena { min-height:220px; border:2px dashed #d7c3ff; background:#fbf8ff; border-radius:18px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; padding:18px; }
+  .banana { position:absolute; font-size:38px; border:0; background:transparent; cursor:pointer; display:none; transition:transform .12s; }
+  .banana:hover { transform:scale(1.2) rotate(15deg); }
+  button { border:0; cursor:pointer; border-radius:14px; padding:13px 18px; font:inherit; font-weight:900; transition:transform .12s,filter .12s; }
+  button:hover { transform:translateY(-2px); filter:brightness(1.03); }
+  button:active { transform:translateY(1px); }
+  .primary { background:var(--purple); color:white; box-shadow:0 5px 0 #4d2cb1; }
+  .secondary { background:#ffe0ec; color:#7e2450; box-shadow:0 5px 0 #f6b6d0; }
+  .actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
+  .question { font-size:1.15rem; font-weight:900; margin:16px 0; }
+  .answers { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .answers button { background:#f4efff; color:var(--ink); border:2px solid #e4d7ff; box-shadow:none; }
+  .answers button.correct { background:#d9ffe8; border-color:#6ed99a; }
+  .answers button.wrong { background:#ffe0e0; border-color:#ff9999; }
+  textarea, input { width:100%; border:2px solid #e4d7ff; border-radius:14px; padding:13px 14px; font:inherit; background:#fff; color:var(--ink); outline:none; }
+  textarea:focus,input:focus { border-color:var(--purple); }
+  textarea { min-height:100px; resize:vertical; }
+  .comments { display:grid; gap:12px; margin-top:16px; }
+  .comment { padding:14px; background:#fff6dc; border-radius:14px; border-left:5px solid var(--pink); overflow-wrap:anywhere; }
+  .comment b { display:block; margin-bottom:5px; }
+  .toast { min-height:28px; margin-top:10px; font-weight:900; text-align:center; }
+  footer { text-align:center; padding:22px 8px; color:#78668e; font-size:.9rem; }
+  @media(max-width:540px){ .answers{grid-template-columns:1fr} .card{padding:17px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="pill">🐒 BANDAR ENTERTAINMENT™</div>
+    <div class="pill">⚠️ Dimaag sambhaal ke</div>
+  </div>
+  <header class="hero">
+    <div class="monkey" aria-label="monkey">🐒</div>
+    <h1>Bandar Ji Ka<br><span>Crorepati</span></h1>
+    <p class="sub">Oye Bandar! Aaj teri kismat, dimaag aur kele khaane ki speed ka test hai. Jeet gaya toh…</p>
+    <div class="prize"><small>IMAGINARY PRIZE MONEY™</small><strong>₹7 CRORE 💸</strong><div>Bas cash lene ke liye sapne se uthna mat bhoolna 😂</div></div>
+  </header>
+
+  <section class="card">
+    <h2>🍌 Challenge 1: Kela Pakdo!</h2>
+    <p class="muted">Start dabao, phir 10 seconds mein jitne kele click kar sakta hai kar. Bandar ki asli power dikha!</p>
+    <div class="stats"><span>⏱️ Time: <span id="time">10</span>s</span><span>🍌 Kele: <span id="score">0</span>/10</span></div>
+    <div class="bar"><div class="fill" id="progress"></div></div>
+    <div class="arena" id="arena">
+      <div id="arenaText"><strong>Ready hai, jungle ke Shah Rukh Khan?</strong><br><span class="muted">Kela bhaagega nahi… shayad.</span></div>
+      <button class="banana" id="banana" aria-label="Catch banana">🍌</button>
+    </div>
+    <div class="actions"><button class="primary" id="start">GAME START KAR, BANDAR! 🐒</button><button class="secondary" id="reset">Phir se try</button></div>
+    <div class="toast" id="gameMsg" aria-live="polite"></div>
+  </section>
+
+  <section class="card">
+    <h2>🧠 Challenge 2: Bandar IQ Test</h2>
+    <p class="muted">Sahi jawab de aur apni izzat bachaa le. Har sahi answer = 1 imaginary point.</p>
+    <div class="question" id="question">Ek bandar ke paas 3 kele hain. Woh 1 kha gaya. Kitne bache?</div>
+    <div class="answers" id="answers">
+      <button data-answer="2">2 kele 🍌</button><button data-answer="0">0, sab pet mein</button><button data-answer="7">7 crore</button><button data-answer="banana">Mujhe kya pata, main bandar hoon</button>
+    </div>
+    <div class="toast" id="quizMsg" aria-live="polite"></div>
+  </section>
+
+  <section class="card">
+    <h2>💌 Review do, Bandar Ji!</h2>
+    <p class="muted">Website kaisi lagi? Dil khol ke bata—par developer ki tareef mein jhooth bhi chalega 😌</p>
+    <form id="commentForm">
+      <label for="nickname"><strong>Tera naam / nickname</strong></label>
+      <input id="nickname" maxlength="40" placeholder="Jaise: Jungle ka Don" />
+      <p><strong>Rating de:</strong></p>
+      <div class="answers" id="ratings">
+        <button type="button" data-rating="1">🤡 Bekaar</button>
+        <button type="button" data-rating="2">😐 Theek-thaak</button>
+        <button type="button" data-rating="3">😂 Mazedaar</button>
+        <button type="button" data-rating="4">👑 7 crore wali!</button>
+      </div>
+      <p><label for="comment"><strong>Apna review likh:</strong></label></p>
+      <textarea id="comment" maxlength="500" placeholder="Sach sach bata, Bandar... 😂"></textarea>
+      <div class="actions"><button class="primary" type="submit">Review jama kar ✍️</button></div>
+      <div class="toast" id="reviewMsg" aria-live="polite"></div>
+    </form>
+    <div id="comments" class="comments"><p class="muted">Abhi tak kisi bandar ne review nahi diya. Pehla tu ban! 👀</p></div>
+    <p class="muted" style="font-size:.85rem;margin-top:14px">Note: Reviews isi browser mein dikhte hain; yeh demo kisi ko online send nahi karta.</p>
+  </section>
+  <footer>Made with 😂, 🍌 aur thodi si dosti. <br>₹7 crore ka cheque imagination mein ready hai.</footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+let score=0, time=10, timer=null, playing=false, selectedRating=0, quizDone=false;
+const banana=$('banana'), arena=$('arena');
+function placeBanana(){
+  const maxX=Math.max(0,arena.clientWidth-55), maxY=Math.max(0,arena.clientHeight-55);
+  banana.style.left=(Math.random()*maxX)+'px'; banana.style.top=(Math.random()*maxY)+'px';
+}
+function endGame(){
+  playing=false; clearInterval(timer); banana.style.display='none';
+  $('time').textContent=time; $('progress').style.width=(score*10)+'%';
+  $('arenaText').style.display='block';
+  $('arenaText').innerHTML= score>=10 ? '<strong>AREY WAAH! Jungle ka legend! 🏆</strong><br>7 crore imaginary rupaye tere hue!' : '<strong>Game over, Bandar! 😂</strong><br>'+score+' kele pakde. Practice kar, crorepati!';
+  $('gameMsg').textContent=score>=10?'Cheque hawa mein hai. Pakad! 💸':'Kismat nahi, reflexes update karne hain. 😭';
+}
+$('start').addEventListener('click',()=>{
+  clearInterval(timer); score=0; time=10; playing=true;
+  $('score').textContent=score; $('time').textContent=time; $('progress').style.width='0%';
+  $('arenaText').style.display='none'; banana.style.display='block'; placeBanana();
+  $('gameMsg').textContent='PAKAD! PAKAD! PAKAD! 🍌';
+  timer=setInterval(()=>{time--; $('time').textContent=time; if(time<=0) endGame();},1000);
+});
+banana.addEventListener('click',()=>{
+  if(!playing)return; score++; $('score').textContent=score;
+  $('progress').style.width=Math.min(100,score*10)+'%';
+  if(score>=10){time=Math.max(0,time);endGame();return;} placeBanana();
+});
+$('reset').addEventListener('click',()=>{
+  clearInterval(timer); playing=false; score=0; time=10;
+  $('score').textContent='0'; $('time').textContent='10'; $('progress').style.width='0%';
+  banana.style.display='none'; $('arenaText').style.display='block';
+  $('arenaText').innerHTML='<strong>Ready hai, jungle ke Shah Rukh Khan?</strong><br><span class="muted">Kela bhaagega nahi… shayad.</span>';
+  $('gameMsg').textContent='';
+});
+const quizButtons=[...document.querySelectorAll('#answers button')];
+quizButtons.forEach(btn=>btn.addEventListener('click',()=>{
+  if(quizDone)return; quizDone=true;
+  if(btn.dataset.answer==='2'){btn.classList.add('correct');$('quizMsg').textContent='Sahi jawab! Bandar mein thoda dimaag hai! 🧠✨';}
+  else {btn.classList.add('wrong');$('quizMsg').textContent='Galat! 3 mein se 1 khaaya toh 2 bache. Kele gin le bhai 😂';}
+  quizButtons.forEach(b=>b.disabled=true);
+}));
+document.querySelectorAll('#ratings button').forEach(btn=>btn.addEventListener('click',()=>{
+  selectedRating=Number(btn.dataset.rating);
+  document.querySelectorAll('#ratings button').forEach(b=>{b.style.outline=b===btn?'3px solid #7b4dff':'none';});
+}));
+$('commentForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('nickname').value.trim()||'Anonymous Bandar';
+  const comment=$('comment').value.trim();
+  if(!selectedRating){$('reviewMsg').textContent='Pehle rating toh de, mahaan bandar! ⭐';return;}
+  if(!comment){$('reviewMsg').textContent='Review likh de—sirf hawa mein rating nahi chalti 😜';return;}
+  const list=$('comments');
+  if(list.querySelector('.muted'))list.innerHTML='';
+  const item=document.createElement('div');item.className='comment';
+  const title=document.createElement('b');
+  title.textContent=name+' · '+'⭐'.repeat(selectedRating);
+  const body=document.createElement('div');body.textContent=comment;
+  item.append(title,body);list.prepend(item);
+  $('reviewMsg').textContent='Review aa gaya! Developer emotional ho gaya 🥹💖';
+  $('comment').value=''; selectedRating=0;
+  document.querySelectorAll('#ratings button').forEach(b=>b.style.outline='none');
+});
+</script>
+</body>
+</html>
